@@ -3,6 +3,7 @@ package ru.synergy.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -34,10 +35,18 @@ public class Calculator extends AppCompatActivity {
 //        SharedPreferences prefs = getApplicationContext().getSharedPreferences("PREFS", MODE_PRIVATE);
 
 
+        ////
+
+
+        //// intent - посылка
+
+
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calculateAnswer();
+                Intent i = new Intent(Calculator.this, MainActivity.class); // Написать письмо
+                startActivity(i);  // Отправить письмо
             }
         });
     }
@@ -50,6 +59,10 @@ public class Calculator extends AppCompatActivity {
         RadioButton sub = (RadioButton) findViewById(R.id.subtract);
         RadioButton multiply = (RadioButton) findViewById(R.id.multiple);
         RadioButton divide = (RadioButton) findViewById(R.id.divide);
+
+        numOne.setText("0");
+        numTwo.setText("0");
+        add.setChecked(true);
 
         TextView answer = (TextView) findViewById(R.id.result);
 
