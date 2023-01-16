@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidStartProject">
+        <activity android:name=".ComeBackActivity"></activity>
+        <activity android:name=".ToInfActivity" />
+        <activity android:name=".MainActivity2" />
         <activity android:name=".Calculator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
