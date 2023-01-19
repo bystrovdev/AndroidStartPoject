@@ -66,6 +66,12 @@ public class Calculator extends AppCompatActivity {
 
         TextView answer = (TextView) findViewById(R.id.result);
 
+        try {
+            int a = 25 / 0;
+        } catch (ArithmeticException e) {
+            e.printStackTrace();
+        }
+
         float numone = 0;
         float numtwo = 0;
         String num1 = numOne.getText().toString();
@@ -98,7 +104,8 @@ public class Calculator extends AppCompatActivity {
             solution = numone / numtwo;
         }
 
-        answer.setText("The answer is " + solution);
+
+        answer.setText("The answer is " + ((int)solution));
 
     }
 }
