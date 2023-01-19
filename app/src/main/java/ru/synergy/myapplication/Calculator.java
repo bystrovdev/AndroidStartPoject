@@ -46,7 +46,7 @@ public class Calculator extends AppCompatActivity {
             public void onClick(View v) {
                 calculateAnswer();
                 Intent i = new Intent(Calculator.this, MainActivity.class); // Написать письмо
-                startActivity(i);  // Отправить письмо
+                //startActivity(i);  // Отправить письмо
             }
         });
     }
@@ -60,32 +60,42 @@ public class Calculator extends AppCompatActivity {
         RadioButton multiply = (RadioButton) findViewById(R.id.multiple);
         RadioButton divide = (RadioButton) findViewById(R.id.divide);
 
-        numOne.setText("0");
-        numTwo.setText("0");
-        add.setChecked(true);
+//        numOne.setText("1");
+//        numTwo.setText("0");
+//        add.setChecked(true);
 
         TextView answer = (TextView) findViewById(R.id.result);
 
-        float numberOne = Integer.parseInt(numOne.getText().toString());
-        float numberTwo = Integer.parseInt(numTwo.getText().toString());
+        float numone = 0;
+        float numtwo = 0;
+        String num1 = numOne.getText().toString();
+        String num2 = numTwo.getText().toString();
+
+        if(!num1.equals("") && num1 != null) {
+            numone = Integer.parseInt(numOne.getText().toString());
+        }
+
+        if(!num2.equals("") && num2 != null) {
+            numtwo = Integer.parseInt(numTwo.getText().toString());
+        }
 
         float solution = 0;
 
         if(add.isChecked()) {
-            solution = numberOne + numberTwo;
+            solution = numone + numtwo;
         }
         if(sub.isChecked()) {
-            solution = numberOne - numberTwo;
+            solution = numone - numtwo;
         }
         if(multiply.isChecked()) {
-            solution = numberOne * numberTwo;
+            solution = numone * numtwo;
         }
         if(divide.isChecked()) {
-            if(numberTwo == 0) {
+            if(numtwo == 0) {
                 Toast.makeText(this, "Number two cannot be zero!", Toast.LENGTH_LONG).show();
                 return;
             }
-            solution = numberOne / numberTwo;
+            solution = numone / numtwo;
         }
 
         answer.setText("The answer is " + solution);

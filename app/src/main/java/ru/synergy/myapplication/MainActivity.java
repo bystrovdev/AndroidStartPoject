@@ -9,7 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends Activity implements View.OnClickListener {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText et;
 
@@ -74,10 +76,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 i.putExtra("et", eText);
                 startActivity(i);
                 break;
-//            case R.id.button3:
-//                i = new Intent(this, ComeBackActivity.class);
-//                startActivityForResult(i, REQ_C);
-//                break;
+            case R.id.button3:
+                i = new Intent(this, ComeBackActivity.class);
+                startActivityForResult(i, REQ_C);
+
 
         }
     }
